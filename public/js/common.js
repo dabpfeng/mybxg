@@ -1,4 +1,4 @@
-define(['jquery','cookie'], function($) {
+define(['jquery','template','cookie'], function($,template) {
 	// NProgress.start();
 	
 	// NProgress.done();
@@ -37,9 +37,12 @@ define(['jquery','cookie'], function($) {
 	logInfo = logInfo && JSON.parse(logInfo);
 	console.log(logInfo);
 	// 设置用户的头像信息
-	$('.aside .profile img').attr('src',logInfo.tc_avatar);
-	// 设置用户昵称
-	$('.aside .profile h4').html(logInfo.tc_name);
-	
-	
+	// $('.aside .profile img').attr('src',logInfo.tc_avatar);
+	// // 设置用户昵称
+	// $('.aside .profile h4').html(logInfo.tc_name);
+
+	// // 利用模版引擎渲染登录信息
+	var tpl = '<div class="avatar img-circle"><img src="{{tc_avatar}}"></div><h4>{{tc_name}}</h4>'
+	var html = template.render(tpl,logInfo);
+	$('.aside .profile').html(html);
 });
