@@ -35,7 +35,7 @@ define(['jquery','template','cookie'], function($,template) {
 	// 设置用户登录后信息
 	var logInfo = $.cookie('logInfo');
 	logInfo = logInfo && JSON.parse(logInfo);
-	console.log(logInfo);
+	// console.log(logInfo);
 	// 设置用户的头像信息
 	// $('.aside .profile img').attr('src',logInfo.tc_avatar);
 	// // 设置用户昵称
