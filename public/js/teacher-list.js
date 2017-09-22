@@ -1,9 +1,9 @@
-define(['jquery','template'], function($, template) {
-    // 调用借口 获取所有的讲师数据
+define(['jquery','template','bootstrap'], function($, template) {
+    // 调用接口 获取所有的讲师数据
     $.ajax({
         type: 'get',
         url: '/api/teacher',
-        datatype: 'json',
+        dataType: 'json',
         success:function(data) {
             // 解析数据,通过模版引擎渲染页面
             // console.log(data);
@@ -25,7 +25,7 @@ define(['jquery','template'], function($, template) {
                     type: 'post',
                     url: '/api/teacher/handle',
                     data: {tc_id : tcId,tc_status : tcStatus},
-                    datatype: 'json',
+                    dataType: 'json',
                     success: function(data){
                         if(data.code == 200) {
                             td.attr('data-status',data.result.tc_status);
@@ -38,7 +38,25 @@ define(['jquery','template'], function($, template) {
                     }
                 });
             });
+
+            //查看讲师详情
+            $('.preview').on('click',function() {
+                var td = $(this).parent('td');   
+                // console.log(td);
+                var tcId = td.attr('data-tcId');
+                $.ajax({
+                    type: 'get',
+                    url: '/api/teacher/view',
+                    data: {tc_id: tcId},
+                    dataType: 'json',
+                    success: function(data) {   // success 没有写对   ...............................
+                        // console.log(data);
+                            var html = template('modalTpl',data.result);
+                            $('#modalInfo').html(html);
+                            $('#teacherModal').modal();
+                    }
+                })
+            })
         }
     });
-    
 });
