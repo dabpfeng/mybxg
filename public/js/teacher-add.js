@@ -13,6 +13,7 @@ define(['jquery','template','util','datepicker','language'],function($,template,
                 data.result.operate = '编辑讲师'
                 var html = template('teacherTpl',data.result);
                 $('#teacherInfo').html(html);
+                // 处理表单提交
                 submitForm('/api/teacher/update');
             }
         });
@@ -20,18 +21,23 @@ define(['jquery','template','util','datepicker','language'],function($,template,
         // 添加讲师操作
        var html = template('teacherTpl',{operate:'添加讲师'});
        $('#teacherInfo').html(html);
+       // 处理表单提交
        submitForm('/api/teacher/add');
     }
 
+    //代码优雅  可维护性高  区别于小白和大牛
+    
     // 实现表单提交
     function submitForm(url){
-        $('teacherBtn').on('click',function(url) {
+        $('#teacherBtn').on('click',function() {
+            console.log(11);
             $.ajax({
-                type: 'post',
-                url: url,
-                data: $('#teacherForm').serialize(),
-                dataType: 'json',
-                success:function(data){
+                type : 'post',
+                url : url,
+                data : $('#teacherForm').serialize(), //serialize()提交表单中所有数据(name属性当中的数据)
+                dataType : 'json',
+                success : function(data){
+                    console.log(data);
                     if(data.code == 200) {
                         location.href = '/teacher/list';
                     }

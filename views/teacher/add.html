@@ -30,6 +30,7 @@
             <div class="teacher-add">
                 <form id="teacherForm" class="form-horizontal col-xs-offset-2">
                     {{if tc_id}}
+                    <!-- input 隐藏域,页面中不显示,只是为了提交数据用的 -->
                     <input type="hidden" name="tc_id" value="{{tc_id}}">
                     {{/if}}
                     <div class="form-group">
@@ -74,7 +75,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-xs-7">
-                            <input id="teacherBtn" type="button" value="添加" class="btn btn-success btn-sm pull-right">
+                            <input id="teacherBtn" type="button" value="提交" class="btn btn-success btn-sm pull-right">
                         </div>                          
                     </div>
                 </form>
