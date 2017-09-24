@@ -16,6 +16,7 @@ require.config({
         language: 'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
         uploadify : 'jquery/jquery.uploadify',
         region : 'jquery-region/jquery.region',
+        settings: '../js/settings'
     },
     shim: { 
         bootstrap: {
