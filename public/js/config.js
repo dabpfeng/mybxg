@@ -14,7 +14,7 @@ require.config({
         util: '../js/util',
         datepicker: 'bootstrap-datepicker/js/bootstrap-datepicker.min',
         language: 'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
-        uploadify : 'jquery/jquery.uploadify',
+        uploadify : 'uploadify/jquery.uploadify.min',
         region : 'jquery-region/jquery.region',
         settings: '../js/settings'
     },
