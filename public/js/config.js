@@ -17,7 +17,9 @@ require.config({
         uploadify : 'uploadify/jquery.uploadify.min',
         region : 'jquery-region/jquery.region',
         settings: '../js/settings',
-        ckeditor: 'ckeditor/ckeditor'
+        ckeditor: 'ckeditor/ckeditor',
+        index : '../js/index',
+        courselist : '../js/course-list'
     },
     shim: { 
         bootstrap: {
