@@ -1,4 +1,4 @@
-define(['jquery','template','uploadify'], function($, template) {
+define(['jquery','template','uploadify','region'], function($, template) {
     // 调用借口 获取个人信息
     $.ajax({
         type : 'get',
@@ -10,7 +10,7 @@ define(['jquery','template','uploadify'], function($, template) {
             $('#settingsInfo').html(html);
             
             // 处理头像上传
-            $('#upfile').uploadify({
+            $('#upfile').uploadify({   
                 width : 120,
                 height : 120,
                 buttonText : '',
@@ -23,6 +23,11 @@ define(['jquery','template','uploadify'], function($, template) {
                   $('.preview img').attr('src',obj.result.path);
                 }
               });
+            
+            // 处理省市区三级联动
+            $('#pcd').region({
+                url : '/public/assets/jquery-region/region.json'
+            })
         }
     })
 });
