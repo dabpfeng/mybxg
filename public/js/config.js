@@ -16,7 +16,8 @@ require.config({
         language: 'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
         uploadify : 'uploadify/jquery.uploadify.min',
         region : 'jquery-region/jquery.region',
-        settings: '../js/settings'
+        settings: '../js/settings',
+        ckeditor: 'ckeditor/ckeditor'
     },
     shim: { 
         bootstrap: {
@@ -30,6 +31,9 @@ require.config({
         },
         uploadify : {
             deps : ['jquery']
+        },
+        ckeditor : {
+            exports : 'CKEDITOR'
         }
     }
 });
