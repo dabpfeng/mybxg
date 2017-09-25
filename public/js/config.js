@@ -19,7 +19,9 @@ require.config({
         settings: '../js/settings',
         ckeditor: 'ckeditor/ckeditor',
         index : '../js/index',
-        courselist : '../js/course-list'
+        courselist : '../js/course-list',
+        courseadd : '../js/course-add',
+        coursebasic : '../js/course-basic'
     },
     shim: { 
         bootstrap: {
