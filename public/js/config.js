@@ -18,6 +18,7 @@ require.config({
         region : 'jquery-region/jquery.region',
         settings: '../js/settings',
         ckeditor: 'ckeditor/ckeditor',
+        jcrop : 'jcrop/js/Jcrop',
         index : '../js/index',
         courselist : '../js/course-list',
         courseadd : '../js/course-add',
