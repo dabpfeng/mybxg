@@ -61,13 +61,16 @@ define(['jquery','template','util','uploadify','jcrop','form'],function($,templa
             }
         })
         
-        // 选中图片
-        var img = $('.preview img').eq(0);
+        
         // 封装一个独立的方法实现裁切功能
         function cropImage(){
            img.Jcrop({
                aspectRatio : 2 // 设置比例
            },function(){
+               // 销毁之前的裁切实例
+               nowCrop && nowCrop.destroy();
+               nowCrop = this;
+
                // 获取宽高
                var width = this.ui.stage.width;
                var height = this.ui.stage.height;
